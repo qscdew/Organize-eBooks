@@ -131,7 +131,7 @@ func main(){
 
 	list4 := widget.NewHBox()//底层功能按钮横向列表
 	list4.Append(widget.NewButton("上一页", func() {
-		for i,_:= range books[min:max]{
+		for i,_:= range books[min:max+1]{
 			index := i // capture
 			books[min+index].book_name=entrys[index].bookname.Text
 			books[min+index].author_name=entrys[index].author.Text
@@ -152,7 +152,7 @@ func main(){
 
 	}))
 	list4.Append(widget.NewButton("下一页", func() {
-		for i,_:= range books[min:max]{
+		for i,_:= range books[min:max+1]{
 			index := i // capture
 			books[min+index].book_name=entrys[index].bookname.Text
 			books[min+index].author_name=entrys[index].author.Text
@@ -171,7 +171,7 @@ func main(){
 
 		page_label.SetText( strconv.Itoa(min)+" -- "+strconv.Itoa(max))
 
-		for i,_:= range books[min:max]{
+		for i,_:= range books[min:max+1]{
 			index:=i
 			entrys[index].author.SetText(books[min+index].author_name)
 			entrys[index].bookname.SetText(books[min+index].book_name)
